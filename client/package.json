@@ -23,6 +23,7 @@
     "recompose": "^0.30.0"
   },
   "scripts": {
+    "dev": "cross-env REACT_APP_8BASE_API_ENDPOINT=https://api.8base.com/cka8c84dj000208mme57jdaex npm start",
     "start": "cross-env NODE_PATH=src react-scripts start",
     "build": "cross-env NODE_PATH=src react-scripts build",
     "test": "react-scripts test --env=jsdom",
