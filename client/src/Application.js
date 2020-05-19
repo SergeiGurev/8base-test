@@ -14,6 +14,7 @@ import { Clients } from './routes/clients';
 import { Orders } from './routes/orders';
 import { Products } from './routes/products';
 import { Client } from './routes/client';
+import { OrderCreate } from './routes/order-create';
 
 const { REACT_APP_8BASE_API_ENDPOINT } = process.env;
 
@@ -52,6 +53,7 @@ class Application extends React.PureComponent {
                   path='/clients/:clientId'
                   component={Client}
                 />
+                <ProtectedRoute exact path="/order-create" component={OrderCreate} />
                 <Redirect to="/clients" />
               </Switch>
             </ContentPlate>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import * as R from 'ramda';
 import { Table, Dropdown, Icon, Menu } from '@8base/boost';
 import { useQuery } from 'react-apollo';
@@ -26,6 +27,7 @@ export const OrdersTable = () => {
     loading,
     data: orders,
   } = useQuery(QUERY);
+  const history = useHistory();
 
   return (
     <Table>
@@ -37,7 +39,12 @@ export const OrdersTable = () => {
         <Table.HeaderCell />
       </Table.Header>
   
-      <Table.Body loading={loading} data={R.pathOr([], ['ordersList', 'items'], orders)}>
+      <Table.Body
+        loading={loading}
+        data={R.pathOr([], ['ordersList', 'items'], orders)}
+        action="Create Order"
+        onActionClick={() => history.push(`/order-create`)}
+      >
         {order => (
           <Table.BodyRow columns="repeat(4, 1fr) 60px" key={order.id}>
             <Table.BodyCell>

@@ -20,7 +20,7 @@ const QUERY = gql`
         name
         price
         picture {
-          shareUrl
+          downloadUrl
         }
       }
     }
@@ -47,7 +47,7 @@ export const ProductsTable = () => {
           <Table.BodyRow columns="60px repeat(2, 1fr) 60px" key={product.id}>
             <Table.BodyCell>
               <ProductPicture
-                src={R.pathOr('', ['picture', 'shareUrl'], product)}
+                src={R.pathOr('', ['picture', 'downloadUrl'], product)}
               />
             </Table.BodyCell>
             <Table.BodyCell>
